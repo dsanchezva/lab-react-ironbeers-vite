@@ -1,0 +1,79 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Link-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    margin: 3px;
+    height: 70px;
+}
+nav img {
+    height: 50px;
+}
+.beerList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px
+}
+.beerCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px, 5px;
+    width: 100%;
+
+
+}
+.cardImg img{
+   height: 150px;
+}
+
+.descriptionCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.descriptionCard img{
+    width: 20%;
+}
+
+.DescriptionRows {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 300px;
+    margin-top: 50px;
+}
+
+.DescriptionFirstRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.DescriptionSecondRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
