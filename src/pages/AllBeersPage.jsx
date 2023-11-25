@@ -13,8 +13,9 @@ import { Link } from "react-router-dom";
 function AllBeersPage() {
 const [beerList, setbeerList] = useState(null);
 const [isLoading, setIsLoading] = useState(true);
+const [query, setQuery] = useState("");
 
-let linkUrl;
+
 
 useEffect(()=> {
     getData()
@@ -23,7 +24,7 @@ useEffect(()=> {
 const getData = async ()=> {
     try{
     const response = await axios.get("https://ih-beers-api2.herokuapp.com/beers")
-    console.log(response.data)
+    // const response = await axios.get(`https://ih-beers-api2.herokuapp.com/beers/search?q={${searchValue}}`)
     setbeerList(response.data);
     setIsLoading(false)
 
@@ -32,6 +33,21 @@ const getData = async ()=> {
 }
 
 }
+const handleSearch = async (event) => {
+setQuery(event.target.value)
+console.log("probando")
+if (query === "") {
+    getData()
+} 
+try {
+    const response = await axios.get(`https://ih-beers-api2.herokuapp.com/beers/search?q=${query}`)
+    setbeerList(response.data)
+    console.log(beerList)
+} catch(err) {
+    console.log(err)
+}
+}
+
 
 if (isLoading) {
     return (
@@ -43,7 +59,11 @@ if (isLoading) {
     return (
         <div>
             <Navbar/>
-            <div className="beerList">
+        
+                <label for="search">Search</label>
+                <input type="text" name="search"  onChange={handleSearch} value={query}/>
+            
+            <div className="beerList">    
              {beerList.map((each, index) => {
                 return(
                         <BeerCard key={index} beer={each}/>
